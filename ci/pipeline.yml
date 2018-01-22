@@ -95,6 +95,7 @@ jobs:
   - task: migrate database
     file: pal-tracker/ci/migrateDatabase.yml
     params:
+          MIGRATION_FOLDER: {{alloc-folder}}
           CF_API_URL: {{cf-api-url}}
           CF_USERNAME: {{cf-username}}
           CF_PASSWORD: {{cf-password}}
@@ -120,6 +121,7 @@ jobs:
   - task: migrate database
     file: pal-tracker/ci/migrateDatabase.yml
     params:
+          MIGRATION_FOLDER: {{backlog-folder}}
           CF_API_URL: {{cf-api-url}}
           CF_USERNAME: {{cf-username}}
           CF_PASSWORD: {{cf-password}}
@@ -145,6 +147,7 @@ jobs:
   - task: migrate database
     file: pal-tracker/ci/migrateDatabase.yml
     params:
+          MIGRATION_FOLDER: {{registration-folder}}
           CF_API_URL: {{cf-api-url}}
           CF_USERNAME: {{cf-username}}
           CF_PASSWORD: {{cf-password}}
@@ -170,6 +173,7 @@ jobs:
   - task: migrate database
     file: pal-tracker/ci/migrateDatabase.yml
     params:
+          MIGRATION_FOLDER: {{timesheets-folder}}
           CF_API_URL: {{cf-api-url}}
           CF_USERNAME: {{cf-username}}
           CF_PASSWORD: {{cf-password}}

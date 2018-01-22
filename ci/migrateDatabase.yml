@@ -26,4 +26,4 @@ run:
     ./cf login -a $CF_API_URL -u $CF_USERNAME -p $CF_PASSWORD -o $CF_ORG -s $CF_SPACE
     ./cf ssh -N -L 63306:$MYSQL_IP:3306 pal-tracker &
     sleep 2
-    ./flyway-5.0.5/flyway -url="jdbc:mysql://127.0.0.1:63306/$DATABASE_NAME" -locations=filesystem:databases/tracker -user=$DATABASE_USERNAME -password=$DATABASE_PASSWORD clean migrate
+    ./flyway-5.0.5/flyway -url="jdbc:mysql://127.0.0.1:63306/$DATABASE_NAME" -locations=filesystem:databases/$MIGRATION_FOLDER -user=$DATABASE_USERNAME -password=$DATABASE_PASSWORD clean migrate
