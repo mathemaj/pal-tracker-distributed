@@ -117,6 +117,18 @@ jobs:
     trigger: true
   - get: backlog-artifacts
     trigger: false
+  - task: migrate database
+    file: pal-tracker/ci/migrateDatabase.yml
+    params:
+          CF_API_URL: {{cf-api-url}}
+          CF_USERNAME: {{cf-username}}
+          CF_PASSWORD: {{cf-password}}
+          CF_ORG: {{cf-org}}
+          CF_SPACE: sandbox
+          MYSQL_IP: {{mysql-ip}}
+          DATABASE_NAME: {{backlog-database-name}}
+          DATABASE_USERNAME: {{backlog-database-username}}
+          DATABASE_PASSWORD: {{backlog-database-password}}
   - put: cf
     params:
       manifest: pal-tracker/manifest-backlog.yml
@@ -130,6 +142,18 @@ jobs:
     trigger: true
   - get: registration-artifacts
     trigger: false
+  - task: migrate database
+    file: pal-tracker/ci/migrateDatabase.yml
+    params:
+          CF_API_URL: {{cf-api-url}}
+          CF_USERNAME: {{cf-username}}
+          CF_PASSWORD: {{cf-password}}
+          CF_ORG: {{cf-org}}
+          CF_SPACE: sandbox
+          MYSQL_IP: {{mysql-ip}}
+          DATABASE_NAME: {{registration-database-name}}
+          DATABASE_USERNAME: {{registration-database-username}}
+          DATABASE_PASSWORD: {{registration-database-password}}
   - put: cf
     params:
       manifest: pal-tracker/manifest-registration.yml
@@ -143,6 +167,18 @@ jobs:
     trigger: true
   - get: timesheets-artifacts
     trigger: false
+  - task: migrate database
+    file: pal-tracker/ci/migrateDatabase.yml
+    params:
+          CF_API_URL: {{cf-api-url}}
+          CF_USERNAME: {{cf-username}}
+          CF_PASSWORD: {{cf-password}}
+          CF_ORG: {{cf-org}}
+          CF_SPACE: sandbox
+          MYSQL_IP: {{mysql-ip}}
+          DATABASE_NAME: {{timesheets-database-name}}
+          DATABASE_USERNAME: {{timesheets-database-username}}
+          DATABASE_PASSWORD: {{timesheets-database-password}}
   - put: cf
     params:
       manifest: pal-tracker/manifest-timesheets.yml
