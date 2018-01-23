@@ -1,4 +1,4 @@
-package io.pivotal.pal.tracker.timesheets;
+package io.pivotal.pal.tracker.registration;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -13,14 +13,11 @@ import org.springframework.web.client.RestTemplate;
 @ConditionalOnProperty(value = "application.oauth-enabled", havingValue = "false")
 public class NoOauthResourceServerConfig extends ResourceServerConfigurerAdapter {
 
+
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().anyRequest().permitAll();
     }
 
-    @Bean
-    @LoadBalanced
-    public RestOperations restOperations() {
-        return new RestTemplate();
-    }
+
 }
