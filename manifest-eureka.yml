@@ -1,0 +1,7 @@
+applications:
+- name: eureka-server
+  path: ./platform-services/build/libs/platform-services.jar
+  host: eureka-pal-am
+  memory: 1G
+  instances: 1
+
